@@ -23,6 +23,11 @@ var TitleUnderscore ToMapKey = func(raw string) string {
 	return string(newstr)
 }
 
+// ToMapWithDefault settings
+func ToMapWithDefault(v interface{}) (map[string]interface{}, error) {
+	return ToMap(v, nil, false)
+}
+
 // ToMap converts exported fields of a struct to map[string]interface{} - non exported fields are converted to string
 func ToMap(v interface{}, tomapkey ToMapKey, unexported bool) (map[string]interface{}, error) {
 	if tomapkey == nil {
